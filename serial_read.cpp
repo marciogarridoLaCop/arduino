@@ -1,9 +1,13 @@
-int flag = 0;
-int ctr = 0;
-int ctr_arr = 0;
+/**
+Programa de Pós Graduação em Engenharia Elétrica e Telecomunicações
+LACOP - Laboratório de Comunicações Óticas - UFF
+Aluno : Márcio Alexandre Dias Garrido
+**/
+
+int flag.ctr,ctr_arr = 0;
 char ReadReq;
 
-unsigned int a, b, c, d, e, f, g, h = 0;
+unsigned int a, b, c, d 0;
 
 unsigned int sensor1[200];
 unsigned int sensor2[200];
@@ -14,9 +18,8 @@ void setup() {
 
   Serial.begin(230400);
   
-  cli();    //stop interrupts
-  
   //set timer1 interrupt at 100 Hz
+  cli();      
   TCCR1A = 0;
   TCCR1B = 0;
   TCNT1  = 0;
@@ -24,7 +27,6 @@ void setup() {
   TCCR1B |= (1 << WGM12);
   TCCR1B |= (1 << CS11);
   TIMSK1 |= (1 << OCIE1A);
-
   sei();    //allow interrupts
 
 }
@@ -44,11 +46,11 @@ void loop() {
 }
 ISR(TIMER1_COMPA_vect) {  // FREQ 1 KHz.
   if (flag == 1)
-  { // takes 700 samples and send it to the MATLAB through serial
-    a = analogRead(A0); // 000000aaaaaaaaaa
-    b = analogRead(A1); // 000000bbbbbbbbbb
-    c = analogRead(A2); // 000000cccccccccc
-    d = analogRead(A3); // 000000dddddddddd
+  { // takes 200 samples and send it to the MATLAB through serial
+    a = analogRead(A0); 
+    b = analogRead(A1); 
+    c = analogRead(A2); 
+    d = analogRead(A3); 
 
     sensor1[ctr] = a;
     sensor1[ctr] = b;
@@ -56,7 +58,7 @@ ISR(TIMER1_COMPA_vect) {  // FREQ 1 KHz.
     sensor1[ctr] = d;
 
     ctr = ctr + 1;
-    if (ctr == 200) // means we had it 700 times
+    if (ctr == 200) // means we had it 200 times
     {
       flag = 0;
       ctr = 0;
