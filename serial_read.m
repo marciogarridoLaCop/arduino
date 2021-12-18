@@ -1,3 +1,7 @@
+% Programa de Pós Graduação em Engenharia Elétrica e Telecomunicações
+% LACOP - Laboratório de Comunicações Óticas - UFF
+% Aluno : Márcio Alexandre Dias Garrido
+
 clear all
 close all
 clc
